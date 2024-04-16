@@ -1,0 +1,623 @@
+body {
+  margin: auto;
+  color: #ffffff;
+  /* Roboto Slab is designed for readability, suitable for various text elements including long-form content. Its classic serif style is visually appealing, which can enhance the overall aesthetics of this webpage. */
+  font-family: "Roboto Slab", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+/* Montserrat is ideal for titles of news and entertainment websites. Its bold and attention-grabbing design ensures that headlines stand out, effectively capturing the reader's attention, especially crucial for engaging younger audiences to quick scanning. */
+h1,
+h2 {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  line-height: normal;
+}
+
+h1 {
+  margin: 0;
+  font-size: 4rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h2.ques-num {
+  font-size: 3.5rem; /* h2 variant */
+}
+
+.container {
+  max-width: 1280px; /* When screen width > 1280px, keep the content center and with 1280px width */
+  padding: 64px;
+  position: relative;
+  margin: 0 auto; /* center content container */
+}
+
+/* -- Header section - cover page -- */
+header {
+  background: linear-gradient(
+    to bottom,
+    #29313c,
+    #2d3346,
+    #36334e,
+    #453152,
+    #552e52
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+header > .container {
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+  grid-template-rows: auto;
+  row-gap: 128px;
+}
+
+.header-course {
+  grid-column-start: 1;
+  grid-column-end: span 1;
+  grid-row-start: 1;
+  grid-row-end: span 1;
+  font-size: 1.5rem;
+}
+
+.header-assignment {
+  grid-column-start: 3;
+  grid-column-end: span 1;
+  grid-row-start: 1;
+  grid-row-end: span 1;
+}
+
+.header-logo {
+  grid-column-start: 4;
+  grid-column-end: span 1;
+  grid-row-start: 1;
+  grid-row-end: span 1;
+  display: flex;
+  align-items: start;
+  justify-content: flex-end;
+}
+
+.header-logo > img {
+  max-width: 40px;
+}
+
+.header-content {
+  grid-column-start: 1;
+  grid-column-end: span 3;
+  grid-row-start: 2;
+  grid-row-end: span 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+h1#header-title {
+  max-width: 70%;
+}
+
+h1#header-title > .external-link {
+  color: #ffffff;
+}
+
+.header-rocket-img {
+  grid-column-start: 3;
+  grid-column-end: span 2;
+  grid-row-start: 1;
+  grid-row-end: span 3;
+  padding: 64px 10%;
+  max-width: 320px;
+}
+
+.header-rocket-img > img {
+  width: 100%;
+  height: auto;
+}
+
+.header-planet-hover {
+  grid-column-start: 1;
+  grid-column-end: span 1;
+  grid-row-start: 3;
+  grid-row-end: span 1;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+}
+
+a.header-planet-hover {
+  width: 160px;
+  height: 160px;
+
+  /* Mouse on hover shows the underlying image */
+  &:hover {
+    & > #planet-img {
+      display: none;
+    }
+
+    & > #cue-text {
+      color: #ffffff;
+    }
+  }
+}
+
+.header-planet-hover > img {
+  width: 160px;
+  height: 160px;
+}
+
+.header-planet-hover > #planet-img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.header-planet-hover > #cue-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #7b4a10;
+  text-decoration: none;
+}
+
+/* If screen width < 1280px, crop the image; otherwise, show the image as much as possible */
+.planet-img-wrapper {
+  position: absolute;
+  right: 0;
+  top: 120px;
+  width: 25%;
+}
+
+.planet-img-wrapper > img {
+  max-width: 780px;
+  height: auto;
+  object-fit: cover;
+}
+
+.planet-img-wrapper > img.has-ring {
+  max-width: 850px;
+}
+
+/* Variant for cover page */
+header .planet-img-wrapper {
+  top: 180px;
+  max-height: 580px;
+}
+
+header .planet-img-wrapper > img {
+  max-width: 600px;
+}
+
+.header-student {
+  grid-column-start: 4;
+  grid-column-end: span 1;
+  grid-row-start: 3;
+  grid-row-end: span 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  font-weight: 200;
+  font-size: 0.8rem;
+  line-height: 1.2rem;
+}
+/* -- End of Header section - cover page -- */
+
+/* -- Questions & answers section -- */
+section {
+  position: relative;
+  min-height: 700px;
+  overflow: hidden;
+}
+
+section > .container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* Questions reading progress indicator */
+section > .container > .content {
+  width: 80%;
+  min-width: 300px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* Showing where the user it is by adding a progress indicator */
+section .progress {
+  margin-bottom: 64px;
+}
+
+section .progress > .small-rocket-img {
+  width: 8%;
+}
+
+section .progress-indicator {
+  position: relative;
+}
+
+section .progress-indicator > .circles {
+  display: flex;
+  flex-direction: row;
+  gap: 3%;
+  justify-content: center;
+}
+
+section .progress-indicator > .circles > .circle {
+  background-color: #d9d9d9;
+  width: 5%;
+  height: 0;
+  padding-bottom: 5%;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+section .progress-indicator > .connector {
+  background-color: #d9d9d9;
+  width: 95%;
+  height: 0;
+  padding-bottom: 1%;
+  z-index: 0;
+
+  /* position the div in center */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+section .progress-indicator .filled-blue {
+  background: linear-gradient(
+    to right top,
+    #001694,
+    #273bb1,
+    #435ecc,
+    #6081e6,
+    #7fa4ff
+  );
+}
+
+section .progress-indicator .filled-gold {
+  background: linear-gradient(
+    to right top,
+    #662e05,
+    #8a4613,
+    #b05f22,
+    #d77930,
+    #ff953f
+  );
+}
+
+section .progress-indicator .filled-teal {
+  background: linear-gradient(
+    to right top,
+    #426f94,
+    #3f7eae,
+    #388dc8,
+    #2a9de3,
+    #00adff
+  );
+}
+
+section .progress-indicator .filled-orange {
+  background: linear-gradient(
+    to right top,
+    #942900,
+    #ae3509,
+    #c84114,
+    #e34d1f,
+    #ff592a
+  );
+}
+
+section .progress-indicator .filled-yellow {
+  background: linear-gradient(
+    to right top,
+    #ff653f,
+    #ff852f,
+    #ffa71b,
+    #ffc805,
+    #ffe915
+  );
+}
+
+section .progress-indicator .filled-green {
+  background: linear-gradient(
+    to right top,
+    #0c6507,
+    #117a1e,
+    #139033,
+    #0fa648,
+    #00bd5e
+  );
+}
+
+section .progress-indicator .filled-pink {
+  background: linear-gradient(
+    to right top,
+    #7c095c,
+    #9b1e75,
+    #bb318f,
+    #dd43aa,
+    #ff55c6
+  );
+}
+/* End of progress indicator */
+
+/* -- End of Questions reading progress indicator -- */
+
+section > .container > .content > .text-content {
+  margin-bottom: 64px;
+}
+
+section .text-content > .screenshot {
+  display: flex;
+  gap: 32px;
+  margin-top: 48px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+section .text-content > .screenshot > img {
+  object-fit: contain;
+  max-width: 480px;
+}
+
+/* Each section has different background colour and different small rocket position, to signal the section content transition */
+section#question-1 {
+  /* gradient background colour */
+  background: linear-gradient(
+    to bottom,
+    #552e52,
+    #492350,
+    #3b1a4f,
+    #29124e,
+    #0b0c4d
+  );
+}
+
+section#question-2 {
+  background: linear-gradient(
+    to bottom,
+    #0b0c4d,
+    #3c003c,
+    #4e052c,
+    #531920,
+    #512a1d
+  );
+
+  .progress > .small-rocket-img {
+    translate: 100%;
+  }
+}
+
+section#question-3 {
+  background: linear-gradient(
+    to bottom,
+    #512a1d,
+    #572a36,
+    #4c334e,
+    #353f5c,
+    #1b485c
+  );
+
+  .progress > .small-rocket-img {
+    translate: 200%;
+  }
+}
+
+section#question-4 {
+  background: linear-gradient(
+    to bottom,
+    #1b485c,
+    #28446c,
+    #4f396d,
+    #742559,
+    #871233
+  );
+
+  .progress > .small-rocket-img {
+    translate: 300%;
+  }
+}
+
+section#question-5 {
+  background: linear-gradient(
+    to bottom,
+    #871233,
+    #842a23,
+    #7c3c18,
+    #714a15,
+    #65561d
+  );
+
+  .progress > .small-rocket-img {
+    translate: 400%;
+  }
+}
+
+section#question-6 {
+  background: linear-gradient(
+    to bottom,
+    #65561d,
+    #6b381e,
+    #5e1f2c,
+    #3f1438,
+    #081338
+  );
+
+  .progress > .small-rocket-img {
+    translate: 500%;
+  }
+}
+
+section#question-7 {
+  background: linear-gradient(
+    to bottom,
+    #081338,
+    #002243,
+    #002c3b,
+    #003325,
+    #0c3808
+  );
+
+  .progress > .small-rocket-img {
+    translate: 600%;
+  }
+}
+
+section#question-8 {
+  background: linear-gradient(
+    to bottom,
+    #0c3808,
+    #362c00,
+    #4d1700,
+    #520021,
+    #3a0d43
+  );
+
+  .progress > .small-rocket-img {
+    translate: 700%;
+  }
+}
+
+section#question-9 {
+  background: linear-gradient(
+    to bottom,
+    #3a0d43,
+    #2e1042,
+    #221240,
+    #16133c,
+    #081338
+  );
+
+  .progress > .small-rocket-img {
+    translate: 800%;
+  }
+}
+
+section#question-10 {
+  background: linear-gradient(
+    to bottom,
+    #081338,
+    #002243,
+    #002c3b,
+    #003325,
+    #0c3808
+  );
+
+  .progress > .small-rocket-img {
+    translate: 900%;
+  }
+}
+
+section#question-11 {
+  background: linear-gradient(
+    to bottom,
+    #0c3808,
+    #362c00,
+    #4d1700,
+    #520021,
+    #3a0d43
+  );
+
+  .progress > .small-rocket-img {
+    translate: 1000%;
+  }
+}
+
+section#question-12 {
+  background: linear-gradient(
+    to bottom,
+    #3a0d43,
+    #4b0436,
+    #550328,
+    #590d1a,
+    #571a0c
+  );
+
+  .progress > .small-rocket-img {
+    translate: 1100%;
+  }
+}
+
+section#question-13 {
+  background: linear-gradient(
+    to bottom,
+    #571a0c,
+    #491117,
+    #360e1b,
+    #230b19,
+    #10020f
+  );
+
+  .progress > .small-rocket-img {
+    translate: 1200%;
+  }
+}
+
+/* End of Questions & answers section */
+
+/* -- Footer -- */
+footer {
+  background-color: #100602;
+}
+
+/* Solid border */
+footer > .container > hr.solid {
+  border-top: 1px solid #ffffff;
+  margin-top: -64px;
+}
+
+footer > .container > .footer-content {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  grid-template-rows: auto;
+  padding-top: 64px;
+}
+
+footer .footer-content > .column {
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+footer .footer-content > .column.right {
+  text-align: right;
+}
+
+footer .footer-content .text {
+  font-size: 1.5rem;
+}
+
+footer .footer-content p {
+  font-weight: 200;
+  font-size: 0.8rem;
+}
+
+footer .footer-content .social-media {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  gap: 32px;
+}
+
+footer .footer-content .social-media > a {
+  width: 28px;
+  height: 28px;
+}
+
+/* -- End of Footer -- */

@@ -1,0 +1,39 @@
+h1 {
+  color: slateblue;
+  font: size 2rem;
+}
+* {
+  color: brown;
+}
+p {
+  color: black;
+  line-height: 1.5;
+  font-size: 1rem;
+}
+.madimi-one-regular {
+  font-family: "Madimi One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h2 {
+  color: blue;
+}
+span {
+  color: black;
+}
+
+.my-color {
+  color: black;
+}
+#venue {
+  color: blue;
+}
+
+[data-email="email"] {
+  color: blueviolet;
+}
+
+ul > li {
+  color: blue;
+}
